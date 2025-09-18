@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { FaFacebookF, FaInstagram, FaArrowRight } from "react-icons/fa";
-//import { FaArrowRight } from "react-icons/fa"
+
 
 const Footer: React.FC = () => {
   return (

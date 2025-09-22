@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        scrolled ? "bg-black/80 backdrop-blur shadow-md" : "bg-transparent"
+        scrolled ? "bg-black/20 backdrop-blur shadow-md" : "bg-transparent"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -115,7 +115,7 @@ const Navbar: React.FC = () => {
         </div>
       </div>
       {/* Mobile Menu */}
-        <div className={`md:hidden fixed inset-0 bg-white/95 backdrop-blur transform ${
+        <div className={`md:hidden fixed inset-0 bg-white backdrop-blur transform ${
             mobileMenuOpen ? "translate-x-0" : "translate-x-full"
         } transition-transform duration-300 ease-in-out`}
         >

@@ -19,8 +19,8 @@ const Navbar: React.FC = () => {
 
   const navLinks: { name: string; to: string }[] = [
     { name: "Home", to: "/" },
-    { name: "Find Tutor", to: "/" },
-    { name: "Become a Tutor", to: "/" },
+    { name: "Find Tutor", to: "/find_tutor" },
+    { name: "Become a Tutor", to: "/become_tutor" },
     { name: "Pricing", to: "/" },
   ];
 

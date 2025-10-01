@@ -1,191 +1,155 @@
 import { useState } from "react";
-import { ArrowRight, CheckCircle, BookOpen, Clock, Users } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
 export default function BecomeTutor() {
   const [step, setStep] = useState(1);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = () => {
+    setSubmitted(true);
+  };
 
   return (
     <div className="min-h-screen bg-gray-100 mt-15">
-      {/* Hero */}
-      <section className="bg-gradient-to-r from-emerald-600 to-indigo-600 text-white py-16">
-        <div className="max-w-4xl mx-auto text-center px-6">
-          <h1 className="text-4xl font-bold mb-4">
-            Share Your Knowledge. Inspire Students.
-          </h1>
-          <p className="text-lg mb-6">
-            Join thousands of tutors and teach with flexibility, while earning
-            securely.
-          </p>
-          <a href="#application">
-            <button className="px-6 py-3 bg-white text-emerald-600 font-semibold rounded-xl shadow hover:bg-gray-100 transition">
-              Start Application
-            </button>
-          </a>
-        </div>
-      </section>
+      {/* Hero Section */}
+      <div className="bg-emerald-600 text-white py-16 px-6 text-center">
+        <h1 className="text-5xl font-">Teach. Inspire. <br /> Earn with Flexibility.</h1>
+        <p className="mt-4 text-lg text-emerald-100 max-w-2xl mx-auto">
+          Become part of India’s fastest growing tutoring platform. Share
+              your knowledge with students and get paid securely.
+        </p>
+      </div>
 
-      {/* Benefits */}
-      <section className="max-w-6xl mx-auto py-12 px-6 grid md:grid-cols-3 gap-6">
+      {/* Why Become Tutor */}
+      <div className="max-w-6xl mx-auto py-12 px-6 grid md:grid-cols-3 gap-6">
         {[
-          { icon: Users, text: "Find students near you" },
-          { icon: BookOpen, text: "Teach subjects you love" },
-          { icon: Clock, text: "Flexible schedules" },
+          {
+            title: "Flexible Schedule",
+            desc: "Teach when it suits you. Morning, evening, or weekends.",
+          },
+          {
+            title: "Earn Income",
+            desc: "Set your hourly rate and get paid directly for your sessions.",
+          },
+          {
+            title: "Impact Students",
+            desc: "Help learners achieve academic success and personal growth.",
+          },
         ].map((item, i) => (
           <div
             key={i}
-            className="bg-white rounded-2xl shadow-md p-6 text-center space-y-3"
+            className="bg-white shadow-md rounded-2xl p-6 text-center hover:shadow-lg transition"
           >
-            <item.icon className="w-10 h-10 text-emerald-600 mx-auto" />
-            <p className="font-medium">{item.text}</p>
+            <h3 className="text-xl font-semibold text-emerald-700">{item.title}</h3>
+            <p className="mt-3 text-gray-600">{item.desc}</p>
           </div>
         ))}
-      </section>
+      </div>
 
-      {/* Application Form */}
-      <section id="application" className="max-w-3xl mx-auto py-12 px-6">
-        <div className="bg-white rounded-2xl shadow-md p-8">
-          <h2 className="text-2xl font-bold mb-6">Tutor Application</h2>
-
-          {/* Step Progress */}
-          <div className="flex justify-between mb-8">
-            {[1, 2, 3, 4].map((s) => (
-              <div
-                key={s}
-                className={`flex-1 text-center ${
-                  step >= s ? "text-emerald-600" : "text-gray-400"
-                }`}
-              >
+      <div className="max-w-4xl mx-auto py-12 px-6">
+        {/* ✅ Success Screen */}
+        {submitted ? (
+          <div className="bg-white shadow-lg rounded-2xl p-12 text-center">
+            <CheckCircle2 className="w-20 h-20 text-emerald-600 mx-auto mb-6" />
+            <h2 className="text-2xl font-bold text-gray-800">Application Submitted!</h2>
+            <p className="text-gray-600 mt-3 max-w-md mx-auto">
+              🎉 Thank you for applying to become a tutor at <span className="font-semibold text-emerald-600">KG to PG</span>.  
+              Our team will review your profile and get back to you within 2–3 business days.
+            </p>
+            <button
+              onClick={() => {
+                setStep(1);
+                setSubmitted(false);
+              }}
+              className="mt-8 px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700"
+            >
+              Back to Home
+            </button>
+          </div>
+        ) : (
+          <>
+            {/* Stepper */}
+            <div className="flex justify-between items-center mb-10">
+              {["Personal Info", "Teaching Profile"].map((label, i) => (
                 <div
-                  className={`w-8 h-8 mx-auto rounded-full flex items-center justify-center ${
-                    step >= s ? "bg-emerald-600 text-white" : "bg-gray-200"
+                  key={i}
+                  className={`flex-1 text-center ${
+                    step === i + 1 ? "text-emerald-700" : "text-gray-500"
                   }`}
                 >
-                  {step > s ? (
-                    <CheckCircle className="w-5 h-5" />
-                  ) : (
-                    <span>{s}</span>
-                  )}
+                  <div
+                    className={`w-10 h-10 mx-auto rounded-full flex items-center justify-center border-2 ${
+                      step === i + 1
+                        ? "border-emerald-600 bg-emerald-50"
+                        : "border-gray-300"
+                    }`}
+                  >
+                    {i + 1}
+                  </div>
+                  <p className="mt-2 text-sm font-medium">{label}</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Step 1 */}
+            {step === 1 && (
+              <div className="bg-white shadow-lg rounded-2xl p-8">
+                <h2 className="text-xl font-semibold text-gray-800 mb-6">
+                  Personal Information
+                </h2>
+                <div className="grid gap-4 md:grid-cols-2">
+                  <input type="text" placeholder="Full Name" className="border rounded-lg px-4 py-2 focus:outline-emerald-600" />
+                  <input type="email" placeholder="Email" className="border rounded-lg px-4 py-2 focus:outline-emerald-600" />
+                  <input type="text" placeholder="Phone Number" className="border rounded-lg px-4 py-2 focus:outline-emerald-600" />
+                  <input type="text" placeholder="City" className="border rounded-lg px-4 py-2 focus:outline-emerald-600" />
+                </div>
+                <div className="flex justify-end mt-8">
+                  <button
+                    onClick={() => setStep(2)}
+                    className="px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700"
+                  >
+                    Next
+                  </button>
                 </div>
               </div>
-            ))}
-          </div>
-
-          {/* Step Content */}
-          {step === 1 && (
-            <div className="space-y-4">
-              <input
-                type="text"
-                placeholder="Full Name"
-                className="w-full p-3 border rounded-lg"
-              />
-              <input
-                type="email"
-                placeholder="Email Address"
-                className="w-full p-3 border rounded-lg"
-              />
-              <input
-                type="tel"
-                placeholder="Phone Number"
-                className="w-full p-3 border rounded-lg"
-              />
-              <input
-                type="text"
-                placeholder="Location (City, State)"
-                className="w-full p-3 border rounded-lg"
-              />
-            </div>
-          )}
-
-          {step === 2 && (
-            <div className="space-y-4">
-              <input
-                type="text"
-                placeholder="Highest Qualification"
-                className="w-full p-3 border rounded-lg"
-              />
-              <input
-                type="text"
-                placeholder="Subjects you teach"
-                className="w-full p-3 border rounded-lg"
-              />
-              <input
-                type="number"
-                placeholder="Years of Experience"
-                className="w-full p-3 border rounded-lg"
-              />
-            </div>
-          )}
-
-          {step === 3 && (
-            <div className="space-y-4">
-              <input
-                type="text"
-                placeholder="Available Days (e.g., Mon–Fri)"
-                className="w-full p-3 border rounded-lg"
-              />
-              <input
-                type="text"
-                placeholder="Available Time Slots"
-                className="w-full p-3 border rounded-lg"
-              />
-              <input
-                type="number"
-                placeholder="Hourly Rate (₹)"
-                className="w-full p-3 border rounded-lg"
-              />
-            </div>
-          )}
-
-          {step === 4 && (
-            <div className="space-y-4">
-              <label className="block text-gray-600">
-                Upload Resume / Certificates
-              </label>
-              <input
-                type="file"
-                className="w-full p-2 border rounded-lg"
-              />
-              <textarea
-                placeholder="Any additional notes..."
-                className="w-full p-3 border rounded-lg"
-              ></textarea>
-            </div>
-          )}
-
-          {/* Navigation */}
-          <div className="flex justify-between mt-8">
-            {step > 1 && (
-              <button
-                onClick={() => setStep(step - 1)}
-                className="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-100"
-              >
-                Back
-              </button>
             )}
-            {step < 4 ? (
-              <button
-                onClick={() => setStep(step + 1)}
-                className="ml-auto px-6 py-2 rounded-lg bg-emerald-600 text-white hover:bg-emerald-700 flex items-center gap-2"
-              >
-                Next <ArrowRight className="w-4 h-4" />
-              </button>
-            ) : (
-              <button className="ml-auto px-6 py-2 rounded-lg bg-green-600 text-white hover:bg-green-700">
-                Submit Application
-              </button>
-            )}
-          </div>
-        </div>
-      </section>
 
-      {/* Closing CTA */}
-      <section className="bg-emerald-600 text-white py-10 text-center">
-        <h2 className="text-2xl font-bold mb-3">Ready to Inspire Students?</h2>
-        <p className="mb-6">Join our growing network of passionate tutors.</p>
-        <button className="px-6 py-3 bg-white text-emerald-600 font-semibold rounded-xl shadow hover:bg-gray-100 transition">
-          Become a Tutor Now
-        </button>
-      </section>
+            {/* Step 2 */}
+            {step === 2 && (
+              <div className="bg-white shadow-lg rounded-2xl p-8">
+                <h2 className="text-xl font-semibold text-gray-800 mb-6">
+                  Teaching Profile
+                </h2>
+                <div className="grid gap-4">
+                  <input type="text" placeholder="Subjects you teach (e.g. Math, English)" className="border rounded-lg px-4 py-2 focus:outline-emerald-600" />
+                  <input type="number" placeholder="Years of experience" className="border rounded-lg px-4 py-2 focus:outline-emerald-600" />
+                  <textarea placeholder="Describe your teaching style..." rows={4} className="border rounded-lg px-4 py-2 focus:outline-emerald-600"></textarea>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <input type="text" placeholder="Availability (e.g. Weekdays, Evenings)" className="border rounded-lg px-4 py-2 focus:outline-emerald-600" />
+                    <input type="number" placeholder="Hourly Rate (₹)" className="border rounded-lg px-4 py-2 focus:outline-emerald-600" />
+                  </div>
+                  <input type="url" placeholder="Demo class link (optional)" className="border rounded-lg px-4 py-2 focus:outline-emerald-600" />
+                </div>
+
+                <div className="flex justify-between mt-8">
+                  <button
+                    onClick={() => setStep(1)}
+                    className="px-6 py-2 border border-gray-300 rounded-lg text-gray-600 hover:bg-gray-100"
+                  >
+                    Back
+                  </button>
+                  <button
+                    onClick={handleSubmit}
+                    className="px-6 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700"
+                  >
+                    Submit Application
+                  </button>
+                </div>
+              </div>
+            )}
+          </>
+        )}
+      </div>
     </div>
   );
 }

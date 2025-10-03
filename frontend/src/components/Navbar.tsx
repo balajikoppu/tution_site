@@ -25,9 +25,10 @@ const Navbar: React.FC = () => {
   ];
 
   const moreLinks: { name: string; to: string }[] = [
-    { name: "FAQ", to: "/" },
-    { name: "About Us", to: "/" },
-    { name: "Contact", to: "/" },
+    { name: "About Us", to: "/about us" },
+    { name: "How It Works", to: "/How It Works" },
+    { name: "FAQ", to: "/faq" },
+    { name: "Contact Us", to: "/contact us" },
   ];
 
   return (

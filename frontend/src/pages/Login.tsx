@@ -3,7 +3,7 @@ import { FcGoogle } from "react-icons/fc";
 
 export default function Login() {
   return (
-    <div className="flex items-center justify-center min-h-screen bg-white/20">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 mt-10">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-md p-8">
         {/* Title */}
         <h2 className="text-2xl font-bold text-center text-gray-800">

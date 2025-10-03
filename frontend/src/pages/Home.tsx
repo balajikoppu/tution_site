@@ -63,7 +63,7 @@ const Home = () => {
 
   
   return (
-    <div className="bg-white">
+    <div className="bg-white/20">
       <section className="bg-gray-light py-20 text-center">
         <h1 className="text-5xl font-extrabold text-slate">
           Learning Made Simple. Teaching Made Rewarding

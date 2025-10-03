@@ -95,7 +95,7 @@ const Home = () => {
           />
           <button
           onClick={handleSearch} 
-          className=" px-6 py-4 bg-emerald-600 text-white font-semibold rounded-lg shadow-md hover:text-black focus:outline-none focus:ring-2 focus:ring-black"
+          className=" px-6 py-4 bg-green-600 text-white font-semibold rounded-lg shadow-md hover:text-black focus:outline-none focus:ring-2 focus:ring-black"
           >
             Search
           </button>
@@ -182,7 +182,7 @@ const Home = () => {
               onClick={() => setActiveTab("Student")}
               className={`px-6 py-2 rounded-lg font-medium transition ${
                 activeTab === "Student"
-                  ? "bg-emerald-600 text-white shadow"
+                  ? "bg-green-600 text-white shadow"
                   : "bg-white border text-gray hover:bg-gray-100"
               }`}
             >
@@ -192,7 +192,7 @@ const Home = () => {
               onClick={() => setActiveTab("Tutor")}
               className={`px-6 py-2 rounded-lg font-medium transition ${
                 activeTab === "Tutor"
-                  ? "bg-emerald-600 text-white shadow"
+                  ? "bg-green-600 text-white shadow"
                   : "bg-white border text-gray hover:bg-gray-100"
               }`}
             >

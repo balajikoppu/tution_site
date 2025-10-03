@@ -74,6 +74,7 @@ export default function FindTutor() {
       return 0;
     });
 
+
   return (
     <div className="min-h-screen bg-gray-100 py-10">
       <div className="max-w-7xl mx-auto px-6">
@@ -87,14 +88,14 @@ export default function FindTutor() {
               placeholder="Search tutors by subject, name, or location..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 rounded-xl border focus:ring-2 focus:ring-emerald-400 focus:border-emerald-500 shadow-sm"
+              className="w-full pl-12 pr-4 py-3 rounded-xl border focus:ring-2 focus:ring-green-400 focus:border-green-500 shadow-sm"
             />
           </div>
 
           {/* Filter Button */}
           <button
             onClick={() => setIsFilterOpen(true)}
-            className="flex items-center gap-2 bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 shadow"
+            className="flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 shadow"
           >
             <SlidersHorizontal className="w-4 h-4" />
             Filters
@@ -113,13 +114,13 @@ export default function FindTutor() {
                 <img
                   src={tutor.avatar}
                   alt={tutor.name}
-                  className="w-16 h-16 rounded-full object-cover border-2 border-emerald-500"
+                  className="w-16 h-16 rounded-full object-cover border-2 border-green-500"
                 />
                 <div>
                   <h3 className="text-xl font-semibold text-gray-800 flex items-center gap-2">
                     {tutor.name}
                     {tutor.badge && (
-                      <span className="text-xs bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full">
+                      <span className="text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">
                         {tutor.badge}
                       </span>
                     )}
@@ -133,7 +134,7 @@ export default function FindTutor() {
                 {tutor.subject.map((subj, i) => (
                   <span
                     key={i}
-                    className="text-xs bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full border border-emerald-200"
+                    className="text-xs bg-green-50 text-green-700 px-3 py-1 rounded-full border border-green-200"
                   >
                     {subj}
                   </span>
@@ -143,10 +144,10 @@ export default function FindTutor() {
               {/* Info */}
               <div className="mt-4 text-sm text-gray-600 space-y-2">
                 <p className="flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-emerald-600" /> {tutor.location}
+                  <MapPin className="w-4 h-4 text-green-600" /> {tutor.location}
                 </p>
                 <p className="flex items-center gap-2">
-                  <Clock className="w-4 h-4 text-emerald-600" /> ₹{tutor.rate}/hr
+                  <Clock className="w-4 h-4 text-green-600" /> ₹{tutor.rate}/hr
                 </p>
                 <p className="flex items-center gap-2">
                   <Star className="w-4 h-4 text-yellow-500" /> {tutor.rating} / 5
@@ -157,12 +158,12 @@ export default function FindTutor() {
               <div className="mt-6 flex justify-between items-center">
                 <Link
                 to={`/tutor/${tutor.id}`}>
-                    <button className="bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700 shadow">
+                    <button className="bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 shadow">
                         View Profile
                     </button>
                 
                 </Link>
-                <button className="text-sm text-emerald-600 hover:underline font-medium">
+                <button className="text-sm text-green-600 hover:underline font-medium">
                   Book Demo →
                 </button>
               </div>
@@ -264,7 +265,7 @@ export default function FindTutor() {
               </button>
               <button
                 onClick={() => setIsFilterOpen(false)}
-                className="flex-1 bg-emerald-600 text-white py-2 rounded-lg hover:bg-emerald-700"
+                className="flex-1 bg-green-600 text-white py-2 rounded-lg hover:bg-green-700"
               >
                 Apply
               </button>

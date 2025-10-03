@@ -21,7 +21,7 @@ const Navbar: React.FC = () => {
     { name: "Home", to: "/" },
     { name: "Find Tutor", to: "/find_tutor" },
     { name: "Become a Tutor", to: "/become_tutor" },
-    { name: "Pricing", to: "/" },
+    { name: "Pricing", to: "/pricing" },
   ];
 
   const moreLinks: { name: string; to: string }[] = [
@@ -41,7 +41,7 @@ const Navbar: React.FC = () => {
         <div className="flex items-center justify-between h-16">
           <Link
             to="/"
-            className="flex items-center text-2xl font-bold text-emerald-600 space-x-2"
+            className="flex items-center text-2xl font-bold text-green-600 space-x-2"
           >
             <span>KG to PG</span>
           </Link>
@@ -52,10 +52,10 @@ const Navbar: React.FC = () => {
               <Link
                 key={link.name}
                 to={link.to}
-                className="text-slate-700 hover:text-emerald-600 px-2 py-1 relative group"
+                className="text-slate-700 hover:text-green-600 px-2 py-1 relative group"
               >
                 {link.name}
-                <span className="block h-0.5 bg-emerald-600 absolute bottom-0 top-0 left-0 width-0 group-hover:w-full transition-all duration-300"></span>
+                <span className="block h-0.5 bg-green-600 absolute bottom-0 top-0 left-0 width-0 group-hover:w-full transition-all duration-300"></span>
               </Link>
             ))}
 
@@ -63,7 +63,7 @@ const Navbar: React.FC = () => {
             <div className="relative">
               <button
                 onClick={() => setDropdownOpen(!dropdownOpen)}
-                className="flex items-center text-slate-700 hover:text-emerald-600 gap-1 focus:outline-none"
+                className="flex items-center text-slate-700 hover:text-green-600 gap-1 focus:outline-none"
               >
                 More <IoMdArrowDropdown />
               </button>
@@ -74,7 +74,7 @@ const Navbar: React.FC = () => {
                     <Link
                       key={link.name}
                       to={link.to}
-                      className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-emerald-600 "
+                      className="block px-4 py-2 text-sm text-slate-700 hover:bg-slate-100 hover:text-green-600 "
                       onClick={() => setDropdownOpen(false)}
                     >
                       {link.name}
@@ -89,20 +89,20 @@ const Navbar: React.FC = () => {
           <div className="flex items-center space-x-4">
             <Link
               to="/login"
-              className="hidden md:inline-block border border-emerald-600 text-emerald-600 px-4 py-2 rounded-lg hover:bg-emerald-600 hover:text-white transition"
+              className="hidden md:inline-block border border-green-600 text-green-600 px-4 py-2 rounded-lg hover:bg-green-600 hover:text-white transition"
             >
               Login
             </Link>
             <Link
               to="/signup"
-              className="hidden md:inline-block bg-emerald-600 text-white px-4 py-2 rounded-lg shadow hover:bg-emerald-700 transition"
+              className="hidden md:inline-block bg-green-600 text-white px-4 py-2 rounded-lg shadow hover:bg-green-700 transition"
             >
               Sign Up
             </Link>
 
             <button
               onClick={() => setMobileMenuOpen((open) => !open)}
-              className="md:hidden text-slate-700 hover:text-emerald-600 focus:outline-none"
+              className="md:hidden text-slate-700 hover:text-green-600 focus:outline-none"
               arial-label="Toggle Menu"
             >
               {mobileMenuOpen ? (
@@ -124,7 +124,7 @@ const Navbar: React.FC = () => {
                     <Link
                         key={link.name}
                         to={link.to}
-                        className="block text-2xl text-slate-800 hover:text-emerald-600"
+                        className="block text-2xl text-slate-800 hover:text-green-600"
                         onClick={() => setMobileMenuOpen(false)}
                     >
                         {link.name}
@@ -140,7 +140,7 @@ const Navbar: React.FC = () => {
                         <Link
                             key={link.name}
                             to={link.to}
-                            className="block text-lg text-slate-800 hover:text-emerald-600 pl-2"
+                            className="block text-lg text-slate-800 hover:text-green-600 pl-2"
                             onClick={() => setMobileMenuOpen(false)}
                         >
                             {link.name}
@@ -149,12 +149,12 @@ const Navbar: React.FC = () => {
                 </div>
                 <Link
                     to="/login"
-                    className="block text-lg border border-emerald-600 text-emerald-600 px-4 py-2 rounded-lg hover:bg-emerald-600 hover:text-white transition w-max"
+                    className="block text-lg border border-green-600 text-green-600 px-4 py-2 rounded-lg hover:bg-green-600 hover:text-white transition w-max"
                     onClick={() => setMobileMenuOpen(false)}
                 >   Login</Link>
                 <Link
                     to="/signup"    
-                    className="block text-lg bg-emerald-600 text-white px-4 py-2 rounded-lg shadow hover:bg-emerald-700 transition w-max"
+                    className="block text-lg bg-green-600 text-white px-4 py-2 rounded-lg shadow hover:bg-green-700 transition w-max"
                     onClick={() => setMobileMenuOpen(false)}
                 >
                     Sign Up

@@ -135,6 +135,30 @@ const Home = () => {
                 Get customized learning paths designed to suit your goals.
               </p>
             </div>
+            <div className="p-6 bg-gray-light rounded-xl shadow hover:shadow-lg transition">
+              <h3 className="text-xl font-semibold text-slate">
+                🛡️ Secure Payments
+              </h3>
+              <p className="mt-2 text-gray">
+                Safe and secure payment processing with money-back guarantee.
+              </p>
+            </div>
+            <div className="p-6 bg-gray-light rounded-xl shadow hover:shadow-lg transition">
+              <h3 className="text-xl font-semibold text-slate">
+                🤝🏻 Quality Guarantee
+              </h3>
+              <p className="mt-2 text-gray">
+                Satisfaction guaranteed or get matched with a different tutor.
+              </p>
+            </div>
+            <div className="p-6 bg-gray-light rounded-xl shadow hover:shadow-lg transition">
+              <h3 className="text-xl font-semibold text-slate">
+                ⚡ Instant Connect
+              </h3>
+              <p className="mt-2 text-gray">
+                Start learning within hours with our fast matching system.
+              </p>
+            </div>
           </div>
         </div>
       </section>

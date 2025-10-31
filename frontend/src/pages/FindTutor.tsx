@@ -76,7 +76,7 @@ export default function FindTutor() {
 
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10">
+    <div className="min-h-screen bg-gray-100 py-10 mt-10">
       <div className="max-w-7xl mx-auto px-6">
         {/* Search + Filter Button */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-6 gap-4">

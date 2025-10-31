@@ -1,7 +1,30 @@
 import { Link } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
+import { useState } from "react";
+import { loginUser } from "../api/auth";
+import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const { login } = useAuth();
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    try {
+      const res = await loginUser({ email, password });
+      login(res.user, res.token);
+      if (res.user.role === "tutor") navigate("/dashboard/tutor");
+      else navigate("/dashboard/student");
+    } catch (err: any) {
+      setError(err.response?.data?.detail || "Login failed");
+    }
+  };
+
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-gray-100 mt-10">
       <div className="w-full max-w-md bg-white rounded-2xl shadow-md p-8">
@@ -14,7 +37,7 @@ export default function Login() {
         </p>
 
         {/* Login Form */}
-        <form className="mt-6 space-y-4">
+        <form className="mt-6 space-y-4" onSubmit={handleSubmit}>
           <div>
             <label htmlFor="email" className="block text-sm font-medium text-gray-700">
               Email Address
@@ -23,6 +46,8 @@ export default function Login() {
               id="email"
               type="email"
               placeholder="you@example.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-800 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
             />
           </div>
@@ -35,6 +60,8 @@ export default function Login() {
               id="password"
               type="password"
               placeholder="********"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
               className="mt-1 block w-full rounded-lg border border-gray-300 px-3 py-2 text-gray-800 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-200"
             />
           </div>

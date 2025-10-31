@@ -2,6 +2,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import Navbar from "./components/Navbar"
 import Login from "./pages/Login"
 import Signup from "./pages/Signup"
+import DashboardTutor from "./pages/DashboardTutor";
+import DashboardStudent from "./pages/DashboardStudent";
+import ProtectedRoute from "./components/ProtectedRoute";
 import Home from "./pages/Home"
 import FindTutor from "./pages/FindTutor"
 import BecomeTutor from"./pages/BecomeTutor"
@@ -33,6 +36,16 @@ const App = () => {
             <Route path="contact us" element={<ContactUs/>}/>
             <Route path="/login" element={<Login/>} />
             <Route path="/signup" element={<Signup/>} />
+            <Route path="dashboard/tutor" element={
+              <ProtectedRoute>
+                <DashboardTutor/>
+              </ProtectedRoute>}
+            />
+            <Route path="dashboard/student" element={
+              <ProtectedRoute>
+                <DashboardStudent/>
+              </ProtectedRoute>}
+            />
           </Routes>
         </main>
         <Footer />
